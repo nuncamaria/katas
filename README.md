@@ -1,4 +1,4 @@
-## Listado de retos
+## Challenge list
 * **#00** - `FIZZ BUZZ`
 * **#01** - `¿ES UN ANAGRAMA?`
 * **#02** - `LA SUCESIÓN DE FIBONACCI`
