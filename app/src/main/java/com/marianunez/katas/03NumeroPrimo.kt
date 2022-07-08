@@ -16,29 +16,28 @@ import kotlin.random.Random
  */
 
 const val FIRST_NUMBER = 1
+const val LAST_NUMBER = 100
 
-private fun main() {
-    isPrime(57)
-}
+private fun main() = isPrime()
 
-private fun isPrime(input: Int = Random.nextInt(1, 100)) {
-    println("Output 1: $input")
-
-    val listOfNumbers = listOf(FIRST_NUMBER..input)
-    for (eachNumber in listOfNumbers) {
-        println("Output 2: $eachNumber")
-        eachNumber.map {
-            calc(it, eachNumber)
-            println("-")
-        }
+private fun isPrime(input: Int = Random.nextInt(FIRST_NUMBER, LAST_NUMBER)) {
+    val listOfNumbers = FIRST_NUMBER..input
+    listOfNumbers.map { number ->
+        calc(number, listOfNumbers)
     }
 }
 
 fun calc(a: Int, b: IntRange) {
+    var counter = 0
     b.map {
         if (a % it == 0) {
-            println("Output 3: El número $a se puede dividir entre $it")
+            counter++
         }
     }
-}
 
+    if (counter == 2) {
+        println("El número $a es primo")
+    } else {
+        println("El número $a no es primo")
+    }
+}
