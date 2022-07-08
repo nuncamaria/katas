@@ -28,8 +28,8 @@ private fun isPrime(input: Int = Random.nextInt(1, 100)) {
     for (eachNumber in listOfNumbers) {
         println("Output 2: $eachNumber")
         eachNumber.map {
-            println(it)
-            println(calc(it, eachNumber))
+            calc(it, eachNumber)
+            println("-")
         }
     }
 }
@@ -37,7 +37,7 @@ private fun isPrime(input: Int = Random.nextInt(1, 100)) {
 fun calc(a: Int, b: IntRange) {
     b.map {
         if (a % it == 0) {
-            println("Output 3: Este número: $a se puede dividir entre $it")
+            println("Output 3: El número $a se puede dividir entre $it")
         }
     }
 }
