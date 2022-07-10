@@ -11,9 +11,7 @@ package com.marianunez.katas
  * Dos palabras exactamente iguales no son anagrama.
  */
 
-
-
-fun main() {
+private fun main() {
     renderAnagram("roma", "amor")
 }
 
