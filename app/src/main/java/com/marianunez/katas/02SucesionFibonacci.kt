@@ -22,13 +22,17 @@ private fun main() {
 private fun renderFibonacci() {
     val fibonacciNumbers = arrayListOf(0)
     fibonacciNumbers.add(1)
-    var position = 0
 
-    while (fibonacciNumbers.size <= 50) {
-        position++
-        val fibonacciNumber = fibonacciNumbers.last() + fibonacciNumbers[position - 1]
-        fibonacciNumbers.add(fibonacciNumber)
-    }
-
+    calcFibonacci(fibonacciNumbers)
     println(fibonacciNumbers)
+}
+
+private fun calcFibonacci(list: ArrayList<Int>){
+    var position = 1
+
+    while (list.size <= 50) {
+        val fibonacciNumber = list.last() + list[position - 1]
+        list.add(fibonacciNumber)
+        position++
+    }
 }
