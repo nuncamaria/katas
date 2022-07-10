@@ -14,16 +14,16 @@ package com.marianunez.katas
 
 
 fun main() {
-
-    isAnagram("roma", "amor")
-
+    isAnagram("amoer", "roma")
 }
 
-fun isAnagram(firstWord: String, secondWord: String): Boolean {
 
-    if (firstWord.length == secondWord.length) {
+fun isAnagram(firstWord: String, secondWord: String) {
+    val transformedSecondWord = secondWord.split("").reversed().joinToString("")
 
-    }
-
-    return true
+    if (firstWord.isNotBlank()) {
+        if (firstWord.isNotBlank() && (firstWord == transformedSecondWord)) {
+            println("$firstWord is an Anagram")
+        } else println("$firstWord and $secondWord are not Anagrams")
+    } else  println("Put something!")
 }
