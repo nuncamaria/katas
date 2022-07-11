@@ -45,7 +45,6 @@ private fun isPrime(number: Int): Boolean {
     for (i in number - 1 downTo 2) {
         if (number % i == 0) {
             return false
-            // break
         }
     }
     return true
