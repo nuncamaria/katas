@@ -20,14 +20,15 @@ private fun main() {
 // que la lista se vaya llenando con esos resultados hasta que llegue a 50
 
 private fun renderFibonacci() {
-    val fibonacciNumbers = arrayListOf(0)
-    fibonacciNumbers.add(1)
+    val fibonacciNumbers = mutableListOf<Int>()
 
     calcFibonacci(fibonacciNumbers)
     println(fibonacciNumbers)
 }
 
-private fun calcFibonacci(list: ArrayList<Int>){
+private fun calcFibonacci(list: MutableList<Int>){
+    list.add(0)
+    list.add(1)
     var position = 1
 
     while (list.size <= 50) {
