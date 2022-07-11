@@ -16,20 +16,20 @@ private fun main() {
 }
 
 private fun renderAnagram(firstWord: String, secondWord: String) {
-    if (firstWord.isNotBlank() && secondWord.isNotBlank()) {
-        isAnagram(firstWord, secondWord)
-    } else println("Write in both fields!")
-}
-
-private fun isAnagram(firstWord: String, secondWord: String): Boolean {
-    var flag = false
-    val transformedSecondWord = secondWord.split("").reversed().joinToString("")
-
-    if (firstWord == transformedSecondWord) {
-        flag = true
-        println("$flag - $firstWord and $secondWord is an Anagram")
-    } else {
-        println("$flag - $firstWord and $secondWord is not an Anagram")
+    if (areEmptyInputs(firstWord, secondWord)) {
+        println("Write in both fields!")
+        return
     }
-    return flag
+
+    if (isAnagram(firstWord, secondWord)) {
+        println("$firstWord and $secondWord is an Anagram")
+    } else {
+        println("$firstWord and $secondWord is not an Anagram")
+    }
 }
+
+private fun isAnagram(firstWord: String, secondWord: String): Boolean =
+    firstWord == secondWord.reversed()
+
+private fun areEmptyInputs(firstWord: String, secondWord: String) =
+    firstWord.isBlank() || secondWord.isBlank()
