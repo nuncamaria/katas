@@ -24,6 +24,8 @@ private fun renderFibonacci() {
 
     calcFibonacci(fibonacciNumbers)
     println(fibonacciNumbers)
+
+    println(fibonacciUsingYield().take(50).toList()) // [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
 }
 
 private fun calcFibonacci(list: MutableList<Int>){
@@ -35,5 +37,17 @@ private fun calcFibonacci(list: MutableList<Int>){
         val fibonacciNumber = list.last() + list[position - 1]
         list.add(fibonacciNumber)
         position++
+    }
+}
+
+// ANOTHER SOLUTION
+
+fun fibonacciUsingYield() = sequence {
+    // we are now in a sequence context
+    var terms = Pair(0, 1)
+
+    while (true) {  // this sequence is infinite
+        yield(terms.first) //esto añade el primer valor del Pair a la secuencia
+        terms = Pair(terms.second, terms.first + terms.second)
     }
 }
