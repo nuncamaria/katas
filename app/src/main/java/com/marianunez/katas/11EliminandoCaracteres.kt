@@ -16,15 +16,21 @@ private fun main() {
 
 private fun compareStrings(str1: String, str2: String) {
 
-    val regex = str1.toRegex()
+    val out1 = mutableSetOf<String>()
+    val out2 = mutableSetOf<String>()
 
-    val out1 = str1.splitToSequence("").map { str2.contains(it) }.toList()
-    val out2 = str2.splitToSequence("").map { str1.contains(it) }.toList()
+    str1.splitToSequence("").map {
+        if (str2.contains(it).not()) {
+            out1.add(it)
+        }
+    }.toSet()
 
-    val matchResult = regex.matchEntire(str2)
+    str2.splitToSequence("").map {
+        if (str1.contains(it).not()) {
+            out2.add(it)
+        }
+    }.toSet()
 
-    println(out1)
-    println(out2)
-    println(matchResult)
-
+    println("Estos elementos están en la str1 pero no están en la str2: $out1")
+    println("Estos elementos están en la str2 pero no están en la str1: $out2")
 }
