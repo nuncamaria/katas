@@ -22,12 +22,12 @@ private fun renderOutputs(str1: String, str2: String) {
     println("This letters exist in str2 but not in str1: ${compareStrings(str2, str1, out2)}")
 }
 
-private fun compareStrings(string1: String, string2: String, set: MutableSet<String>): String {
-    string1.splitToSequence("").map {
-        if (string2.contains(it).not()) {
-            set.add(it)
+private fun compareStrings(string1: String, string2: String, output: MutableSet<String>): String {
+    string1.lowercase().splitToSequence("").map {
+        if (string2.lowercase().contains(it).not()) {
+            output.add(it)
         }
     }.toSet()
 
-    return set.joinToString("")
+    return output.joinToString("")
 }
