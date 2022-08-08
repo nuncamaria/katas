@@ -10,3 +10,15 @@ package com.marianunez.katas
  * - Los polígonos soportados serán Triángulo, Cuadrado y Rectángulo.
  * - Imprime el cálculo del área de un polígono de cada tipo.
  */
+
+private fun main() {
+
+}
+
+/**
+ * Area of a triangle = 1/2 × base × height
+ * Area of a square = length × length
+ * Area of the rectangle = length × height
+ * */
+
+private fun calcArea(polygon: String) {}
