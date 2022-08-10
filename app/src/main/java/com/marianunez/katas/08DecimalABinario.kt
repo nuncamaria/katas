@@ -15,7 +15,7 @@ fun main() {
 private fun convertToBinary(decimalNumber: Int): String {
     // por una parte necesito un número decimal, que le asignaré a una var
     // porque necesito ir actualizando esa variable y haciendo operaciones con ella
-    val binaryNumber = mutableListOf<Int>()
+    var binaryNumber = ""
     var updatedNumber: Int = decimalNumber
 
     while (updatedNumber != 0) {
@@ -23,8 +23,8 @@ private fun convertToBinary(decimalNumber: Int): String {
         val module = updatedNumber % 2
 
         updatedNumber = division
-        binaryNumber.add(module)
+        binaryNumber = module.toString() + binaryNumber
     }
 
-    return binaryNumber.reversed().joinToString("")
+    return binaryNumber
 }
