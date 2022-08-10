@@ -15,16 +15,21 @@ private fun main() {
 }
 
 private fun renderOutputs(str1: String, str2: String) {
-    println("This letters exist in str1 but not in str2: ${compareStrings(str1, str2)}")
-    println("This letters exist in str2 but not in str1: ${compareStrings(str2, str1)}")
+    val out1 = mutableSetOf<String>()
+    val out2 = mutableSetOf<String>()
+
+    // otra opción es sacar la función fuera para que se le asigne el valor al out1 y luego pintarlo
+    compareStrings(str1, str2, out1)
+    compareStrings(str2, str1, out2)
+
+    println("This letters exist in str1 but not in str2: ${out1.joinToString("")}")
+    println("This letters exist in str2 but not in str1: ${out2.joinToString("")}")
 }
 
-private fun compareStrings(string1: String, string2: String): String {
-    var output = ""
+private fun compareStrings(string1: String, string2: String, output: MutableSet<String>) {
     string1.lowercase().splitToSequence("").map { str1 ->
         if (string2.lowercase().contains(str1).not()) {
-            output += str1
+            output.add(str1)
         }
     }.toSet()
-    return output
 }
