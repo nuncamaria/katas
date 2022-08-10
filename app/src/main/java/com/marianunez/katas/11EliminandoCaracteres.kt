@@ -15,9 +15,6 @@ private fun main() {
 }
 
 private fun renderOutputs(str1: String, str2: String) {
-    val out1 = ""
-    val out2 = ""
-
     println("This letters exist in str1 but not in str2: ${compareStrings(str1, str2)}")
     println("This letters exist in str2 but not in str1: ${compareStrings(str2, str1)}")
 }
