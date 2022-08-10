@@ -11,23 +11,23 @@ package com.marianunez.katas
  */
 
 private fun main() {
-    renderOutputs("aasdlqweffa", "alqweffaggg")
+    renderOutputs("hhhhhhola1987", "ola234")
 }
 
 private fun renderOutputs(str1: String, str2: String) {
-    val out1 = mutableSetOf<String>()
-    val out2 = mutableSetOf<String>()
+    val out1 = ""
+    val out2 = ""
 
-    println("This letters exist in str1 but not in str2: ${compareStrings(str1, str2, out1)}")
-    println("This letters exist in str2 but not in str1: ${compareStrings(str2, str1, out2)}")
+    println("This letters exist in str1 but not in str2: ${compareStrings(str1, str2)}")
+    println("This letters exist in str2 but not in str1: ${compareStrings(str2, str1)}")
 }
 
-private fun compareStrings(string1: String, string2: String, output: MutableSet<String>): String {
-    string1.lowercase().splitToSequence("").map {
-        if (string2.lowercase().contains(it).not()) {
-            output.add(it)
+private fun compareStrings(string1: String, string2: String): String {
+    var output = ""
+    string1.lowercase().splitToSequence("").map { str1 ->
+        if (string2.lowercase().contains(str1).not()) {
+            output += str1
         }
     }.toSet()
-
-    return output.joinToString("")
+    return output
 }
